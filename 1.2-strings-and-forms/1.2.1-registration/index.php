@@ -9,11 +9,11 @@ $code = strtolower(str_replace(' ', '', $_POST['code']));
 $codeWord = 'nd82jaake';
 
 
-if (preg_match('\W', $login)) {
-    echo 'Поле логин не должно содержать символы';
+if (preg_match('/\W/', $login)) {
+    echo 'Поле логин не должно содержать спецсимволы';
 } elseif (strlen($password) < 8) {
     echo 'Длина пароля должна быть минимум 8 символов';
-} elseif (!(preg_match('^\w+\@[a-zA-Z]+.[a-zA-Z]+', $email))) {
+} elseif (!(preg_match('/^\w+\@[a-zA-Z]+\.[a-zA-Z]+/', $email))) {
     echo 'Почта должна быть формата почта@домен.доменнаязона';
 } elseif (strlen($firstName) === 0) {
     echo 'Поле имя обязательно к заполнению';
